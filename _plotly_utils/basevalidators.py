@@ -1102,6 +1102,7 @@ class ColorValidator(BaseValidator):
       - An rgb/rgba string (e.g. 'rgb(255,0,0)')
       - An hsl/hsla string (e.g. 'hsl(0,100%,50%)')
       - An hsv/hsva string (e.g. 'hsv(0,100%,100%)')
+      - A string literal of 'transparent' (alias for 'rgba(0,0,0,0)')
       - A named CSS color:
 {clrs}""".format(
             plotly_name=self.plotly_name, clrs=named_clrs_str)
@@ -1238,6 +1239,8 @@ class ColorValidator(BaseValidator):
             elif v_normalized in ColorValidator.named_colors:
                 # Valid named color (e.g. 'coral')
                 return v
+            elif v_normalized == 'transparent':
+                return 'rgba(0,0,0,0)'
             else:
                 # Not a valid color
                 return None
