@@ -1064,8 +1064,8 @@ class ColorValidator(BaseValidator):
         "salmon", "sandybrown", "seagreen", "seashell", "sienna", "silver",
         "skyblue", "slateblue", "slategray", "slategrey", "snow",
         "springgreen", "steelblue", "tan", "teal", "thistle", "tomato",
-        "turquoise", "violet", "wheat", "white", "whitesmoke", "yellow",
-        "yellowgreen"
+        "turquoise", "transparent", "violet", "wheat", "white", "whitesmoke",
+        "yellow", "yellowgreen"
     ]
 
     def __init__(self,
@@ -1322,7 +1322,7 @@ class ColorscaleValidator(BaseValidator):
     The '{plotly_name}' property is a colorscale and may be
     specified as:
       - A list of 2-element lists where the first element is the
-        normalized color level value (starting at 0 and ending at 1), 
+        normalized color level value (starting at 0 and ending at 1),
         and the second item is a valid color string.
         (e.g. [[0, 'green'], [0.5, 'red'], [1.0, 'rgb(0, 0, 255)']])
       - One of the following named colorscales:
@@ -2394,7 +2394,7 @@ class BaseTemplateValidator(CompoundValidator):
             >>> list(pio.templates)
       - A string containing multiple registered template names, joined on '+'
         characters (e.g. 'template1+template2'). In this case the resulting
-        template is computed by merging together the collection of registered 
+        template is computed by merging together the collection of registered
         templates"""
 
         return compound_description
